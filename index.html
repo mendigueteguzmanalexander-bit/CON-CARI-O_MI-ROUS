@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Para Rous — Mi Perdón y Amor</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg1: #fff0f5;
+    --bg2: #ffe5ec;
+    --accent: #e63973;
+    --muted: #5b5b5b;
+    --card: #ffffff;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Montserrat", sans-serif;
+    background: linear-gradient(135deg,var(--bg1),var(--bg2));
+    color:#222;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:24px;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:980px;
+    background:var(--card);
+    border-radius:22px;
+    box-shadow:0 18px 50px rgba(0,0,0,0.15);
+    overflow:hidden;
+    display:grid;
+    grid-template-columns: 1fr 420px;
+  }
+
+  .left{
+    padding:36px;
+  }
+  .topline{
+    display:flex;align-items:center;gap:14px;margin-bottom:18px;
+  }
+  .heart{
+    width:72px;height:72px;border-radius:16px;
+    background:linear-gradient(135deg,#ffb6c1,#ff3b6d);
+    display:grid;place-items:center;color:white;font-weight:700;font-size:34px;
+    box-shadow: 0 10px 20px rgba(230,57,115,0.25);
+  }
+  h1{
+    margin:0;font-family:"Playfair Display", serif;
+    font-size:30px;color:var(--accent);
+  }
+  p.lead{margin:14px 0 22px;color:var(--muted);line-height:1.6;}
+
+  .card{
+    background:linear-gradient(180deg,#fff,#fff8f9);
+    border-radius:14px;
+    padding:18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    margin-bottom:18px;
+  }
+  textarea#carta{
+    width:100%;min-height:180px;
+    border-radius:12px;border:1px solid #eee;padding:14px;
+    font-size:15px;resize:vertical;
+  }
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;}
+
+  .btn{
+    background:var(--accent);
+    color:white;border:0;padding:11px 18px;border-radius:12px;
+    cursor:pointer;font-weight:600;
+    box-shadow:0 6px 16px rgba(230,57,115,0.22);
+  }
+  .btn.ghost{
+    background:transparent;color:var(--accent);
+    border:1.5px solid #ffdfe4;box-shadow:none;
+  }
+  .hint{color:#777;font-size:13px;margin-top:8px;}
+
+  .right{padding:34px;background:linear-gradient(180deg,#fff0f2,#fff8f8);
+    display:flex;flex-direction:column;gap:18px;}
+
+  .poema{
+    font-family:"Playfair Display", serif;
+    color:#80253a;font-size:18px;line-height:1.6;
+    padding:14px;border-radius:12px;background:rgba(255,255,255,0.7);
+  }
+
+  .promesas{
+    padding:14px;border-radius:12px;background:#fff;
+    border:1px dashed rgba(0,0,0,0.05);color:var(--muted);
+  }
+  ul.prom{margin:8px 0 0 18px;color:#4b4b4b;}
+
+  .status{text-align:center;padding:12px;border-radius:12px;
+    background:linear-gradient(90deg,#fff,#ffeef0);
+    font-weight:600;color:var(--accent);}
+
+  .secret{margin-top:10px;padding:12px;border-radius:12px;
+    background:linear-gradient(90deg,#fff,#fff3f6);
+    border-left:4px solid var(--accent);display:none;color:#333;}
+
+  .actions{display:flex;gap:10px;justify-content:center;margin-top:6px;}
+
+  @media (max-width:980px){
+    .wrap{grid-template-columns:1fr}
+  }
+  .accepted{animation:pop 650ms ease;}
+  @keyframes pop{0%{transform:scale(0.9);opacity:0}60%{transform:scale(1.05);opacity:1}100%{transform:scale(1)}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="left">
+    <div class="topline">
+      <div class="heart">💖</div>
+      <div>
+        <h1>Para Rous</h1>
+        <div style="color:#6b6b6b;font-size:14px;margin-top:6px">Una carta sincera, romántica y llena de amor.</div>
+      </div>
+    </div>
+
+    <p class="lead">Aquí escribo lo que siento, porque el amor es más fuerte que cualquier error. Rous, esta página es para ti, para pedirte perdón y recordarte cuánto te amo.</p>
+
+    <div class="card">
+      <label for="carta" style="font-weight:600;color:#444">Carta de amor y disculpa</label>
+      <textarea id="carta">Mi querida Rous,  
+
+Perdóname si en algún momento te hice sentir tristeza. No hay un solo día en que no piense en lo valiosa que eres para mí.  
+Tu sonrisa es mi refugio, tu voz mi calma, y tu amor el regalo más hermoso que he recibido.  
+
+Prometo cuidar tu corazón, ser paciente, y demostrarte cada día lo importante que eres en mi vida.  
+Te amo más de lo que las palabras pueden explicar.  
+
+Con todo mi amor,  
+[Tu ALEX]</textarea>
+
+      <div class="row">
+        <button class="btn" id="mostrarSecret">Mostrar mensaje secreto</button>
+        <button class="btn ghost" id="resetCarta">Restablecer carta</button>
+      </div>
+    </div>
+  </div>
+
+  <aside class="right">
+    <div class="poema">
+      <div style="font-weight:700;margin-bottom:8px">Poema para ti</div>
+      En tus ojos brilla el cielo,  
+      en tu risa vive la paz,  
+      Rous, eres mi gran anhelo,  
+      mi presente y mi jamás.  
+    </div>
+
+    <div class="promesas">
+      <div style="font-weight:700;margin-bottom:6px;color:#333">Mis promesas</div>
+      <ul class="prom">
+        <li>Amarte sin condiciones.</li>
+        <li>Ser tu apoyo en cada momento.</li>
+        <li>No volver a fallar en lo que te duele.</li>
+      </ul>
+    </div>
+
+    <div class="status" id="status">Estado: esperando tu respuesta 💌</div>
+
+    <div class="actions">
+      <button class="btn" id="aceptarBtn">Aceptar</button>
+      <button class="btn ghost" id="perdonarBtn">Perdonar</button>
+    </div>
+
+    <div class="secret" id="secretBox">
+      <strong>Mensaje secreto:</strong>
+      <p>Rous, eres mi razón, mi inspiración y mi todo. Mi mayor deseo es volver a empezar contigo, más fuertes y más unidos que nunca. 💞</p>
+    </div>
+  </aside>
+</div>
+
+<script>
+  const mostrarSecret = documen
